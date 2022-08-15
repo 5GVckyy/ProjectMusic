@@ -158,7 +158,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 **Judul :** **{title}\n\n⏳ Durasi :** {duration_min} Mins\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -169,12 +169,12 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo="Utils/Playlist.jpg",
                 caption=(
-                    "**Usage:** /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Playlists! Select the one from Below."
+                    "**Usage:** /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Playlists! Select the one from Below."               
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             return
-        mystic = await message.reply_text("🔍 Searching...")
+        mystic = await message.reply_text("🔎 **Mencari Lagu**...")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -189,7 +189,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 **Judul :** **{title}\n\n⏳ Durasi :** {duration_min} Mins\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -222,8 +222,7 @@ async def Music_Stream(_, CallbackQuery):
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Please search You Own Song.",
-            show_alert=True,
+            "Ini Bukan Untuk Anda! Silahkan Cari Lagu Anda Sendiri.", show_alert=True
         )
     await CallbackQuery.message.delete()
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
@@ -231,7 +230,6 @@ async def Music_Stream(_, CallbackQuery):
         return await CallbackQuery.message.reply_text(
             f"**Batas Durasi Terlampaui**\n\n**Durasi Yang Diizinkan: **{DURATION_LIMIT_MIN} minute\n**Durasi Yang Di Terima:** {duration_min} menit"
         )
-    await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
         f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
     )
@@ -263,7 +261,7 @@ async def search_query_more(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "Ini Bukan Untuk Anda! Silahkan Cari Lagu Anda Sendiri.",
             show_alert=True,
         )
     await CallbackQuery.answer("Searching More Results")
@@ -271,7 +269,7 @@ async def search_query_more(_, CallbackQuery):
     med = InputMediaPhoto(
         media="Utils/Result.JPEG",
         caption=(
-            f"¹ <b>{results[0]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n² <b>{results[1]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n³ <b>{results[2]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁴ <b>{results[3]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁵ <b>{results[4]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
+            f"¹ <b>{results[0]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n² <b>{results[1]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n³ <b>{results[2]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁴ <b>{results[3]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁵ <b>{results[4]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>"
         ),
     )
     buttons = search_markup(
@@ -301,7 +299,7 @@ async def popat(_, CallbackQuery):
     i, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song", show_alert=True
+            "Ini Bukan Untuk Anda! Silahkan Cari Lagu Anda Sendiri.", show_alert=True
         )
     results = YoutubeSearch(query, max_results=10).to_dict()
     if int(i) == 1:
@@ -320,10 +318,10 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"⁶ <b>{results[5]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁷ <b>{results[6]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁸ <b>{results[7]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁹ <b>{results[8]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n¹⁰ <b>{results[9]['title']}</b>\n\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>",
+            f"⁶ <b>{results[5]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁷ <b>{results[6]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁸ <b>{results[7]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁹ <b>{results[8]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n¹⁰ <b>{results[9]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
-            disable_web_page_preview = True
         )
+        disable_web_page_preview = True
         return
     if int(i) == 2:
         buttons = search_markup(
@@ -341,10 +339,10 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"¹ <b>{results[0]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n² <b>{results[1]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n³ <b>{results[2]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁴ <b>{results[3]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u> ┗ ⚡ __Powered by {MUSIC_BOT_NAME}\n\n⁵ <b>{results[4]['title']}</b>\n ┗ 📀 <u>__[Klik Disini](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>",
+            f"¹ <b>{results[0]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n² <b>{results[1]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n³ <b>{results[2]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁴ <b>{results[3]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>\n\n⁵ <b>{results[4]['title']}</b>\n ├ 📀 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>\n └ ⚡ __Powered by {MUSIC_BOT_NAME}__</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
-            disable_web_page_preview = True
         )
+        disable_web_page_preview = True
         return
 
 
@@ -355,7 +353,7 @@ async def slider_query_results(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "Ini Bukan Untuk Anda! Silahkan Cari Lagu Anda Sendiri.",
             show_alert=True,
         )
     what = str(what)
@@ -365,7 +363,6 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 0
         else:
             query_type = int(type + 1)
-        await CallbackQuery.answer("Getting Next Result", show_alert=True)
         (
             title,
             duration_min,
@@ -378,7 +375,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 **Judul :** **{title}\n\n⏳ Durasi :** {duration_min} Mins\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
@@ -388,7 +385,6 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 9
         else:
             query_type = int(type - 1)
-        await CallbackQuery.answer("Getting Previous Result", show_alert=True)
         (
             title,
             duration_min,
@@ -401,7 +397,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 **Judul :** **{title}\n\n⏳ Durasi :** {duration_min} Mins\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
