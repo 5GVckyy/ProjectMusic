@@ -75,10 +75,10 @@ def inl_mark(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="ɢᴏ ʙᴀᴄᴋ", callback_data=f"good {videoid}|{user_id}"
+                text="ᴋᴇᴍʙᴀʟɪ", callback_data=f"good {videoid}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close2"
+                text="ᴛᴜᴛᴜᴘ ᴍᴇɴᴜ", callback_data=f"close2"
             ),
         ],
     ]
@@ -108,14 +108,14 @@ async def boom(_, CallbackQuery):
         thumb_image_path = result["thumbnails"][0]["url"]
         channel = channel = result["channel"]["name"]
         fetched = f"""
-🔍**Track Downloaded**
+🔎 **Track Downloaded**
 
-❇️**Title:** {title}
+❇️ **Judul :** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-🎥**Channel Name:** {channel}
-🔗**Video Link:** [Link]({yturl})
+⏳ **Duration :** {duration} Mins
+👀 **Views: ** `{views}`
+🎥 **Channel Name:** {channel}
+🔗 **Video Link :** [Link]({yturl})
 
 ⚡️ __Youtube Inline Download Powered By {MUSIC_BOT_NAME}__"""
     filext = "%(title)s.%(ext)s"
@@ -223,7 +223,7 @@ async def boom(_, CallbackQuery):
 
 def p_mark(link, channel):
     buttons = [
-        [InlineKeyboardButton(text="Watch on Youtube", url=f"{link}")],
+        [InlineKeyboardButton(text="Watch On Youtube", url=f"{link}")],
     ]
     return buttons
 
