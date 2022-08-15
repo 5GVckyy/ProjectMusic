@@ -20,7 +20,7 @@ def song_markup(videoid, duration, user_id, query, query_type):
         ],
         [
             InlineKeyboardButton(
-                text="ᴄʟᴏsᴇ",
+                text="ᴛᴜᴛᴜᴘ",
                 callback_data=f"forceclose {query}|{user_id}",
             )
         ],
@@ -42,7 +42,7 @@ def song_download_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="ᴄʟᴏsᴇ",
+                text="ᴛᴜᴛᴜᴘ",
                 callback_data=f"forceclose {videoid}|{user_id}",
             )
         ],
