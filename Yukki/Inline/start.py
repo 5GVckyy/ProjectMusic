@@ -20,7 +20,7 @@ def setting_markup2():
             ),
         ],
         [
-            InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
+            InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close"),
         ],
     ]
     return f"🛠  **{MUSIC_BOT_NAME} sᴇᴛᴛɪɴɢs**", buttons
@@ -203,8 +203,8 @@ def setting_markup():
             ),
         ],
         [
-            InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
-            InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="okaybhai"),
+            InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close"),
+            InlineKeyboardButton(text="ᴋᴇᴍʙᴀʟɪ", callback_data="okaybhai"),
         ],
     ]
     return f"🛠  **{MUSIC_BOT_NAME} sᴇᴛᴛɪɴɢs**", buttons
@@ -230,7 +230,7 @@ def volmarkup():
                 text="⚔ ᴄᴜsᴛᴏᴍ ᴠᴏʟᴜᴍᴇ ⚔", callback_data="Custommarkup"
             )
         ],
-        [InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="settingm")],
+        [InlineKeyboardButton(text="ᴋᴇᴍʙᴀʟɪ", callback_data="settingm")],
     ]
     return f"🛠  **{MUSIC_BOT_NAME} sᴇᴛᴛɪɴɢs**", buttons
 
@@ -265,7 +265,7 @@ def usermarkup():
                 text="📜 ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴜsᴇʀs ʟɪsᴛs", callback_data="USERLIST"
             )
         ],
-        [InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="settingm")],
+        [InlineKeyboardButton(text="ᴋᴇᴍʙᴀʟɪ", callback_data="settingm")],
     ]
     return f"🛠  **{MUSIC_BOT_NAME} sᴇᴛᴛɪɴɢs**", buttons
 
@@ -280,6 +280,6 @@ def dashmarkup():
             InlineKeyboardButton(text="💻 ᴄᴘᴜ", callback_data="CPT"),
             InlineKeyboardButton(text="💽 ᴅɪsᴋ", callback_data="DIT"),
         ],
-        [InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="settingm")],
+        [InlineKeyboardButton(text="ᴋᴇᴍʙᴀʟɪ", callback_data="settingm")],
     ]
     return f"🛠  **{MUSIC_BOT_NAME} sᴇᴛᴛɪɴɢs**", buttons
