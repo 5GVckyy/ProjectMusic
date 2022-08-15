@@ -47,7 +47,7 @@ async def play(_, message: Message):
         buttons = song_download_markup(videoid, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 <b>Judul :</b> {title}\n\n⏳ **Durasi :** {duration_min} Menit\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -56,7 +56,7 @@ async def play(_, message: Message):
                 "**Usage:**\n\n/song [Youtube Url or Music Name]\n\nDownloads the Particular Query."
             )
             return
-        mystic = await message.reply_text("🔍 Searching Your Query...")
+        mystic = await message.reply_text("🔎 Searching...")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -73,7 +73,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 <b>Judul :</b> {title}\n\n⏳ **Durasi :** {duration_min} Menit\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -99,7 +99,7 @@ async def song_right(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "Lagu Ini Bukan Untuk Anda! Silahkan Cari Lagu Anda Sendiri.",
             show_alert=True,
         )
     what = str(what)
@@ -124,7 +124,7 @@ async def song_right(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 <b>Judul :</b> {title}\n\n⏳ **Durasi :** {duration_min} Menit\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
@@ -149,7 +149,7 @@ async def song_right(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📀 Judul: **{title}\n\n⏳ Duration:** {duration_min} Menit\n\n__[Informasi Lebih Lanjut](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📀 <b>Judul :</b>{title}\n\n⏳ **Durasi :** {duration_min} Menit\n\n⚡ __Powered by {MUSIC_BOT_NAME}__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
