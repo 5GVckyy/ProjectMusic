@@ -67,11 +67,11 @@ async def welcome(_, message: Message):
                 return await remove_active_chat(chat_id)
             if member.id in OWNER_ID:
                 return await message.reply_text(
-                    f"{MUSIC_BOT_NAME}'s Owner[{member.mention}] has just joined your chat."
+                    f"{MUSIC_BOT_NAME}'s Owner [{member.mention}] has just joined your chat."
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"A member of {MUSIC_BOT_NAME}'s Sudo User[{member.mention}] has just joined your chat."
+                    f"A member of {MUSIC_BOT_NAME}'s Sudo User [{member.mention}] has just joined your chat."
                 )
             return
         except:
@@ -108,7 +108,7 @@ async def settings(_, message: Message):
     await asyncio.gather(
         message.delete(),
         message.reply_text(
-            f"{text}\n\n**Group:** {message.chat.title}\n**Group ID:** {message.chat.id}\n**Volume Level:** {volume}%",
+            f"{text}\n\n**Group :** {message.chat.title}\n**Group ID :** {message.chat.id}\n**Volume Level :** {volume}%",
             reply_markup=InlineKeyboardMarkup(buttons),
         ),
     )
@@ -119,7 +119,7 @@ async def okaybhai(_, CallbackQuery):
     await CallbackQuery.answer("Going Back ...")
     out = start_pannel()
     await CallbackQuery.edit_message_text(
-        text=f"Thanks for having me in {CallbackQuery.message.chat.title}.\n{MUSIC_BOT_NAME}is alive.\n\nFor any assistance or help, checkout our support group and channel.",
+        text=f"Terima Kasih Sudah Menambahkan Saya {CallbackQuery.message.chat.title}.\nSaya Adalah {MUSIC_BOT_NAME}'s \n\nUntuk Bantuan Silahkan Ke Grup Support Dan Channel.",
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
@@ -204,7 +204,7 @@ async def start_markup_check(_, CallbackQuery):
         _check = await get_start(c_id, "assistant")
         volume = _check["volume"]
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\n**Group:** {c_title}\n**Group ID:** {c_id}\n**Volume Level:** {volume}%\n**Audio Quality:** Default Best",
+            text=f"{text}\n\n**Group :** {c_title}\n**Group ID :** {c_id}\n**Volume Level :** {volume}%\n**Audio Quality :** Default Best",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if command == "AU":
@@ -216,7 +216,7 @@ async def start_markup_check(_, CallbackQuery):
         else:
             current = "Everyone"
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\n**Group:** {c_title}\n\nCurrently Who Can Use {MUSIC_BOT_NAME}:- **{current}**\n\n**⁉️ What is This?**\n\n**👥 Everyone :-**Anyone can use {MUSIC_BOT_NAME}'s commands(skip, pause, resume etc) present in this group.\n\n**🙍 Admin Only :-**  Only the admins and authorized users can use all commands of {MUSIC_BOT_NAME}.",
+            text=f"{text}\n\n**Group :** {c_title}\n\nCurrently Who Can Use {MUSIC_BOT_NAME}:- **{current}**\n\n**⁉️ What is This?**\n\n**👥 Everyone :-**Anyone can use {MUSIC_BOT_NAME}'s commands(skip, pause, resume etc) present in this group.\n\n**🙍 Admin Only :-**  Only the admins and authorized users can use all commands of {MUSIC_BOT_NAME}.",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if command == "Dashboard":
@@ -225,7 +225,7 @@ async def start_markup_check(_, CallbackQuery):
         _check = await get_start(c_id, "assistant")
         volume = _check["volume"]
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\n**Group:** {c_title}\n**Group ID:** {c_id}\n**Volume Level:** {volume}%\n\nCheck {MUSIC_BOT_NAME}'s System Stats In the DashBoard Here! More Functions adding very soon! Keep on Checking Support Channel.",
+            text=f"{text}\n\n**Group :** {c_title}\n**Group ID:** {c_id}\n**Volume Level:** {volume}%\n\nCheck {MUSIC_BOT_NAME}'s System Stats In the DashBoard Here! More Functions adding very soon! Keep on Checking Support Channel.",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if command == "Custommarkup":
