@@ -77,21 +77,21 @@ def search_markup(
     buttons = [
         [
             InlineKeyboardButton(
-                text="¹", callback_data=f"Yukki {ID1}|{duration1}|{user_id}"
+                text="1️⃣", callback_data=f"Yukki {ID1}|{duration1}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="²", callback_data=f"Yukki {ID2}|{duration2}|{user_id}"
+                text="2️⃣", callback_data=f"Yukki {ID2}|{duration2}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="³", callback_data=f"Yukki {ID3}|{duration3}|{user_id}"
+                text="3️⃣", callback_data=f"Yukki {ID3}|{duration3}|{user_id}"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="⁴", callback_data=f"Yukki {ID4}|{duration4}|{user_id}"
+                text="4️⃣", callback_data=f"Yukki {ID4}|{duration4}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="⁵", callback_data=f"Yukki {ID5}|{duration5}|{user_id}"
+                text="5️⃣", callback_data=f"Yukki {ID5}|{duration5}|{user_id}"
             ),
         ],
         [
@@ -126,25 +126,25 @@ def search_markup2(
     buttons = [
         [
             InlineKeyboardButton(
-                text="⁶",
+                text="6️⃣",
                 callback_data=f"Yukki {ID6}|{duration6}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="⁷",
+                text="7️⃣",
                 callback_data=f"Yukki {ID7}|{duration7}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="⁸",
+                text="8️⃣",
                 callback_data=f"Yukki {ID8}|{duration8}|{user_id}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="⁹",
+                text="9️⃣",
                 callback_data=f"Yukki {ID9}|{duration9}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="¹⁰",
+                text="🔟",
                 callback_data=f"Yukki {ID10}|{duration10}|{user_id}",
             ),
         ],
